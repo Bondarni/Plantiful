@@ -1,0 +1,20 @@
+{
+  "name": "plantiful",
+  "version": "1.0.0",
+  "description": "Plantiful aims to be a place where you can assess your plants health in real time, get tips on plant care, and keep a schedule to stay on track.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ngneat/falso": "^6.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "pg": "^8.10.0",
+    "sequelize": "^6.30.0"
+  }
+}
