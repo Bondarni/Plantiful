@@ -8,3 +8,6 @@ HTML / CSS / Javascript / React.js
 
 Updates:
 We're just getting started!  Come back later as changes occur.
+
+Links:
+[Trello](https://trello.com/b/z8PmHZiu/plantiful)
