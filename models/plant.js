@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Plant.init(
     {
-      taxName: DataTypes.STRING,
+      kind: DataTypes.STRING,
       nickName: DataTypes.STRING,
       needWater: DataTypes.BOOLEAN,
       needSun: DataTypes.BOOLEAN,
