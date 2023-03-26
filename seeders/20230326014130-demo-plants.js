@@ -12,15 +12,17 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    return queryInterface.bulkInsert('Plants', [
+    return queryInterface.bulkInsert('plants', [
       {
         kind: 'Monstera deliciosa',
         nickName: 'Manni',
         needWater: 'False',
         needSun: 'False',
-        ploints: 30,
-        userId: 1,
-        environmentId: 1
+        ploints: 90,
+        userId: 2,
+        environmentId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         kind: 'Monstera deliciosa',
@@ -28,8 +30,10 @@ module.exports = {
         needWater: 'False',
         needSun: 'True',
         ploints: 60,
-        userId: 1,
-        environmentId: 2
+        userId: 2,
+        environmentId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ])
   },
@@ -41,6 +45,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    return queryInterface.bulkDelete('Plants', null, {})
+    return queryInterface.bulkDelete('plants', null, {})
   }
 }

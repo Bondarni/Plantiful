@@ -12,12 +12,28 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    return queryInterface.bulkInsert('users', [
+    return queryInterface.bulkInsert('environments', [
       {
-        firstName: 'Guest',
-        lastName: 'Guesterson',
-        email: 'guest@email.com',
-        password: 'guest',
+        name: 'Living Room',
+        temperature: 70,
+        airStatus: 'Good',
+        userId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Kitchen',
+        temperature: '72',
+        airStatus: 'Fair',
+        userId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Greenhouse',
+        temperature: '78',
+        airStatus: 'Good',
+        userId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       }
@@ -31,6 +47,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    return queryInterface.bulkDelete('users', null, {})
+    return queryInterface.bulkDelete('environments', null, {})
   }
 }
