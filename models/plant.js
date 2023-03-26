@@ -9,6 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Plant.belongsTo(models.User, { foreignKey: 'userId' })
+      Plant.belongsTo(models.Environment, { foreginKey: 'environmentId' })
     }
   }
   Plant.init(
@@ -19,8 +21,22 @@ module.exports = (sequelize, DataTypes) => {
       needSun: DataTypes.BOOLEAN,
       needCheckup: DataTypes.BOOLEAN,
       ploints: DataTypes.INTEGER,
-      userId: DataTypes.INTEGER,
-      environmentId: DataTypes.INTEGER
+      userId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      },
+      environmentId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'environments',
+          key: 'id'
+        }
+      }
     },
     {
       sequelize,

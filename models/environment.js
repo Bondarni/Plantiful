@@ -9,13 +9,23 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Environment.hasMany(models.Plant, { foreignKey: 'environmentId' })
+      Environment.belongsTo(models.User, { foreignKey: 'userId' })
     }
   }
   Environment.init(
     {
       name: DataTypes.STRING,
       temperature: DataTypes.INTEGER,
-      airStatus: DataTypes.STRING
+      airStatus: DataTypes.STRING,
+      userId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      }
     },
     {
       sequelize,
