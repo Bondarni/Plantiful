@@ -35,14 +35,6 @@ module.exports = {
           key: 'id'
         }
       },
-      environmentId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          key: 'id'
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

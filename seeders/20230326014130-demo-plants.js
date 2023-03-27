@@ -19,8 +19,7 @@ module.exports = {
         needWater: 'False',
         needSun: 'False',
         ploints: 90,
-        userId: 2,
-        environmentId: 2,
+        userId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -30,8 +29,7 @@ module.exports = {
         needWater: 'False',
         needSun: 'True',
         ploints: 60,
-        userId: 2,
-        environmentId: 2,
+        userId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }

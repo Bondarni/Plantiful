@@ -1,4 +1,4 @@
-const { User, Plant, Environment } = require('../models')
+const { User, Plant } = require('../models')
 
 const GetAllUsers = async (req, res) => {
   try {
@@ -11,13 +11,14 @@ const GetAllUsers = async (req, res) => {
 
 const GetUserWithPlants = async (req, res) => {
   try {
-    const userinfo = await User.findByPk(req.params.user_id, {
-      include: [
-        { model: Plant, as: 'Plants' },
-        { model: Environment, as: 'Environments' }
-      ]
+    let userId = parseInt(req.params.user_id)
+    const data = await User.findAll({
+      where: {
+        id: userId
+      },
+      include: [{ model: Plant, as: 'plants' }]
     })
-    res.send(userinfo)
+    res.send(data)
   } catch (error) {
     throw error
   }
@@ -25,7 +26,11 @@ const GetUserWithPlants = async (req, res) => {
 
 const DeleteUserProfile = async (req, res) => {
   try {
-    await User.delete(req.params.user_id)
+    let userId = parseInt(req.params.user_id)
+    await User.destroy({
+      where: { id: userId },
+      returning: true
+    })
     res.send({ message: 'User Profile Erased' })
   } catch (error) {
     throw error
@@ -47,14 +52,7 @@ const EditUserProfile = async (req, res) => {
 
 const CreateUserProfile = async (req, res) => {
   try {
-    const userinfo = {
-      firstName,
-      LastName,
-      email,
-      password,
-      zipCode
-    }
-    const user = await User.create(userinfo)
+    const user = await User.create(req.body)
     res.send(user)
   } catch (error) {
     throw error
