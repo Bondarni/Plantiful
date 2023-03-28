@@ -22,7 +22,7 @@ function App() {
   const getPlants = async () => {
     const res = await axios.get(`${BASE_URL}/plants`)
     setPlants(res.data)
-    console.log(res.data)
+    console.log(plants)
   }
 
   const getAreas = async () => {
