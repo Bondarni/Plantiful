@@ -1,9 +1,9 @@
 import AreaCard from '../../components/AreaCard/AreaCard'
 import './AreaPage.css'
-const Area = () => {
+const Area = ({ areas }) => {
   return (
     <div className="areasection">
-      <AreaCard />
+      <AreaCard areas={areas} />
     </div>
   )
 }

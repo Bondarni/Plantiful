@@ -1,9 +1,11 @@
 import PlantCard from '../../components/PlantCard/PlantCard'
 import './PlantPage.css'
-const PlantPage = () => {
+const PlantPage = ({ ...plants }) => {
   return (
     <div className="plantpagesection">
-      <PlantCard />
+      {plants.map((plant) => (
+        <PlantCard plant={plant} />
+      ))}
     </div>
   )
 }
