@@ -3,7 +3,9 @@ import './AreaPage.css'
 const Area = ({ areas }) => {
   return (
     <div className="areasection">
-      <AreaCard areas={areas} />
+      {areas.map((area) => (
+        <AreaCard area={area} />
+      ))}
     </div>
   )
 }

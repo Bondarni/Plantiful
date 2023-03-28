@@ -1,7 +1,11 @@
 import './AreaCard.css'
 
-const AreaCard = () => {
-  return <div className="areacardcontainer"></div>
+const AreaCard = ({ area }) => {
+  return (
+    <div className="areacardcontainer">
+      <h1>{area.name}</h1>
+    </div>
+  )
 }
 
 export default AreaCard

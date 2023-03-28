@@ -22,7 +22,7 @@ function App() {
   const getPlants = async () => {
     const res = await axios.get(`${BASE_URL}/plants`)
     setPlants(res.data)
-    console.log(plants)
+    console.log(res.data)
   }
 
   const getAreas = async () => {
@@ -33,7 +33,8 @@ function App() {
 
   const getUser = async () => {
     const res = await axios.get(`${BASE_URL}/users/1`)
-    setUser(res.data)
+    setUser(...res.data)
+    console.log(...res.data)
   }
 
   const getWeather = async () => {
@@ -68,10 +69,10 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/userinfo" element={<UserInfoPage user={user} />} />
-          <Route path="/plant" element={<PlantPage plants={plants} />} />
+          <Route path="/plants" element={<PlantPage plants={plants} />} />
           <Route path="/useredit" element={<EditUserInfoPage />} />
           <Route path="/plantedit" element={<EditPlantPage />} />
-          <Route path="/area" element={<AreaPage areas={areas} />} />
+          <Route path="/areas" element={<AreaPage areas={areas} />} />
         </Routes>
       </main>
     </div>
