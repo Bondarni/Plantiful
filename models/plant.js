@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Plant.belongsTo(models.User, { foreignKey: 'userId', as: 'users' })
+      Plant.belongsTo(models.Area, { foreignKey: 'areaId', as: 'areas' })
     }
   }
   Plant.init(
@@ -25,6 +26,14 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         references: {
           model: 'users',
+          key: 'id'
+        }
+      },
+      areaId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'areas',
           key: 'id'
         }
       }

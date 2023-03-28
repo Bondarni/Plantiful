@@ -2,44 +2,27 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('plants', {
+    await queryInterface.createTable('areas', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      kind: {
+      name: {
         type: Sequelize.STRING
       },
-      nickName: {
-        type: Sequelize.STRING
-      },
-      needWater: {
-        type: Sequelize.BOOLEAN
-      },
-      needSun: {
-        type: Sequelize.BOOLEAN
-      },
-      needCheckup: {
-        type: Sequelize.BOOLEAN
-      },
-      ploints: {
+      temp: {
         type: Sequelize.INTEGER
+      },
+      airQuality: {
+        type: Sequelize.STRING
       },
       userId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
           model: 'users',
-          key: 'id'
-        }
-      },
-      areaId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'areas',
           key: 'id'
         }
       },
@@ -54,6 +37,6 @@ module.exports = {
     })
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('plants')
+    await queryInterface.dropTable('areas')
   }
 }
