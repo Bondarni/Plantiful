@@ -20,6 +20,7 @@ module.exports = {
         needSun: 'False',
         ploints: 90,
         userId: 1,
+        areaId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -30,6 +31,7 @@ module.exports = {
         needSun: 'True',
         ploints: 60,
         userId: 1,
+        areaId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       }
