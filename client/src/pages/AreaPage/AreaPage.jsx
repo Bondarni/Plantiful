@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 const Area = ({ areas }) => {
   return (
     <div className="areasection">
-      <Link className="addbutton">Click here to create a new space!</Link>
+      <Link to={'/areas/new'}>
+        <button className="addbutton">Click here to create a new space!</button>
+      </Link>
       {areas.map((area) => (
         <AreaCard area={area} key={area.id} />
       ))}

@@ -1,4 +1,5 @@
 import './EditUserInfoPage.css'
+import { Link } from 'react-router-dom'
 const EditUserInfoPage = () => {
   return (
     <div className="edituserinfopagesection">
@@ -10,6 +11,9 @@ const EditUserInfoPage = () => {
         <input type="text" />
         <input type="text" />
       </form>
+      <Link to={'/userinfo'}>
+        <button>Done!</button>
+      </Link>
     </div>
   )
 }

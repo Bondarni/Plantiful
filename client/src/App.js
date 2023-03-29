@@ -14,6 +14,7 @@ import AddPlantPage from './pages/AddPlantPage/AddPlantPage'
 import EditPlantPage from './pages/EditPlantPage/EditPlantPage'
 import AreaPage from './pages/AreaPage/AreaPage'
 import AddAreaPage from './pages/AddAreaPage/AddAreaPage'
+import EditAreaPage from './pages/EditAreaPage/EditAreaPage'
 
 function App() {
   const [plants, setPlants] = useState(null)
@@ -83,6 +84,7 @@ function App() {
           />
           <Route path="/areas" element={<AreaPage areas={areas} />} />
           <Route path="/areas/new" element={<AddAreaPage areas={areas} />} />
+          <Route path="/areas/edit" element={<EditAreaPage areas={areas} />} />
         </Routes>
       </main>
     </div>

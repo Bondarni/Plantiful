@@ -1,10 +1,10 @@
-import './AddAreaPage.css'
+import './EditAreaPage.css'
 import { Link } from 'react-router-dom'
-const AddAreaPage = () => {
+const EditAreaPage = () => {
   return (
-    <div className="addareasection">
-      <h1>New Space</h1>
-      <form action="">
+    <div className="editareapagesection">
+      <h1>Edit your space details below;</h1>
+      <form className="editform">
         <input type="text" />
         <input type="text" />
       </form>
@@ -15,4 +15,4 @@ const AddAreaPage = () => {
   )
 }
 
-export default AddAreaPage
+export default EditAreaPage

@@ -1,4 +1,5 @@
 import './EditPlantPage.css'
+import { Link } from 'react-router-dom'
 const EditPlantPage = () => {
   return (
     <div className="editplantpagesection">
@@ -10,6 +11,9 @@ const EditPlantPage = () => {
         <input type="text" />
         <input type="text" />
       </form>
+      <Link to={'/plants'}>
+        <button>Done!</button>
+      </Link>
     </div>
   )
 }
