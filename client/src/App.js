@@ -73,7 +73,10 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/userinfo" element={<UserInfoPage user={user} />} />
           <Route path="/userinfo/edit" element={<EditUserInfoPage />} />
-          <Route path="/plants" element={<PlantPage plants={plants} />} />
+          <Route
+            path="/plants"
+            element={<PlantPage user={user} getUser={getUser} />}
+          />
           <Route
             path="/plants/new"
             element={<AddPlantPage plants={plants} />}
