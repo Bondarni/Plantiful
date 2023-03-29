@@ -1,5 +1,5 @@
 import './WeatherCard.css'
-const WeatherCard = () => {
+const WeatherCard = ({ weather }) => {
   return <div className="weathercardsection"></div>
 }
 
