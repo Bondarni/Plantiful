@@ -8,10 +8,12 @@ import Entry from './pages/Entry/Entry'
 import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import UserInfoPage from './pages/UserInfoPage/UserInfoPage'
-import PlantPage from './pages/PlantPage/PlantPage'
 import EditUserInfoPage from './pages/EditUserInfoPage/EditUserInfoPage'
+import PlantPage from './pages/PlantPage/PlantPage'
+import AddPlantPage from './pages/AddPlantPage/AddPlantPage'
 import EditPlantPage from './pages/EditPlantPage/EditPlantPage'
 import AreaPage from './pages/AreaPage/AreaPage'
+import AddAreaPage from './pages/AddAreaPage/AddAreaPage'
 
 function App() {
   const [plants, setPlants] = useState(null)
@@ -69,10 +71,18 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/userinfo" element={<UserInfoPage user={user} />} />
+          <Route path="/userinfo/edit" element={<EditUserInfoPage />} />
           <Route path="/plants" element={<PlantPage plants={plants} />} />
-          <Route path="/useredit" element={<EditUserInfoPage />} />
-          <Route path="/plantedit" element={<EditPlantPage />} />
+          <Route
+            path="/plants/new"
+            element={<AddPlantPage plants={plants} />}
+          />
+          <Route
+            path="/plants/edit"
+            element={<EditPlantPage plants={plants} />}
+          />
           <Route path="/areas" element={<AreaPage areas={areas} />} />
+          <Route path="/areas/new" element={<AddAreaPage areas={areas} />} />
         </Routes>
       </main>
     </div>
