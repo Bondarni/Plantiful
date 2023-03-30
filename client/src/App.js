@@ -12,9 +12,11 @@ import EditUserInfoPage from './pages/EditUserInfoPage/EditUserInfoPage'
 import PlantPage from './pages/PlantPage/PlantPage'
 import AddPlantPage from './pages/AddPlantPage/AddPlantPage'
 import EditPlantPage from './pages/EditPlantPage/EditPlantPage'
+import DeletePlantPage from './pages/DeletePlantPage/DeletePlantPage'
 import AreaPage from './pages/AreaPage/AreaPage'
 import AddAreaPage from './pages/AddAreaPage/AddAreaPage'
 import EditAreaPage from './pages/EditAreaPage/EditAreaPage'
+import DeleteAreaPage from './pages/DeleteAreaPage/DeleteAreaPage'
 
 function App() {
   // const [plants, setPlants] = useState('')
@@ -78,13 +80,27 @@ function App() {
             element={<PlantPage user={user} getUser={getUser} />}
           />
           <Route path="/plants/new" element={<AddPlantPage user={user} />} />
-          <Route path="/plants/edit" element={<EditPlantPage user={user} />} />
+          <Route
+            path="/plants/:plant_id"
+            element={<EditPlantPage user={user} />}
+          />
+          <Route
+            path="/plants/delete/:plant_id"
+            element={<DeletePlantPage user={user} />}
+          />
           <Route
             path="/areas"
             element={<AreaPage user={user} getUser={getUser} />}
           />
           <Route path="/areas/new" element={<AddAreaPage user={user} />} />
-          <Route path="/areas/edit" element={<EditAreaPage user={user} />} />
+          <Route
+            path="/areas/:area_id"
+            element={<EditAreaPage user={user} />}
+          />
+          <Route
+            path="/areas/delete/:area_id"
+            element={<DeleteAreaPage user={user} />}
+          />
         </Routes>
       </main>
     </div>

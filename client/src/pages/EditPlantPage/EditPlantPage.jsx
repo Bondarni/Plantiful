@@ -1,15 +1,43 @@
 import './EditPlantPage.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../../globals'
+
 const EditPlantPage = () => {
+  let navigate = useNavigate()
+  let initialState = {
+    kind: '',
+    nickName: '',
+    waterNeed: null,
+    sunNeed: null,
+    userId: 1,
+    areaId: 1
+  }
+
+  const [formState, setFormState] = useState(initialState)
+
+  const handleChange = async (e) => {
+    setFormState({ ...formState, [e.target.id]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await axios.put(`${BASE_URL}/plants`, formState)
+    console.log(formState)
+    setFormState(initialState)
+    navigate('/plants')
+  }
+
   return (
     <div className="editplantpagesection">
       <h1>Edit your plant's details below;</h1>
-      <form className="editform">
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
+      <form className="editform" onSubmit={handleSubmit}>
+        <input type="text" onChange={handleChange} />
+        <input type="text" onChange={handleChange} />
+        <input type="text" onChange={handleChange} />
+        <input type="text" onChange={handleChange} />
+        <input type="text" onChange={handleChange} />
       </form>
       <Link to={'/plants'}>
         <button>Done!</button>
