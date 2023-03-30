@@ -1,4 +1,4 @@
-const { User, Plant } = require('../models')
+const { User, Plant, Area } = require('../models')
 
 const GetAllUsers = async (req, res) => {
   try {
@@ -16,7 +16,10 @@ const GetUserWithPlants = async (req, res) => {
       where: {
         id: userId
       },
-      include: [{ model: Plant, as: 'plants' }]
+      include: [
+        { model: Area, as: 'areas' },
+        { model: Plant, as: 'plants' }
+      ]
     })
     res.send(data)
   } catch (error) {

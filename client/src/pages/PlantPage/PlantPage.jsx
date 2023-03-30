@@ -6,15 +6,15 @@ const PlantPage = ({ user, getUser }) => {
   useEffect(() => {
     getUser()
   }, [])
-  console.log(user)
+  const plants = user.plants
   return (
     <div className="plantpagesection">
       <Link to={'/plants/new'}>
         <button className="addbutton">Click here to create a new plant!</button>
       </Link>
-      {/* {plants.map((plant) => (
+      {plants.map((plant) => (
         <PlantCard plant={plant} key={plant.id} />
-      ))} */}
+      ))}
     </div>
   )
 }

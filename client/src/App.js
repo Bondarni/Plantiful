@@ -22,20 +22,20 @@ function App() {
   const [user, setUser] = useState(null)
   const [weather, setWeather] = useState(null)
 
-  const getPlants = async () => {
-    const res = await axios.get(`${BASE_URL}/plants`)
-    setPlants(res.data)
-    console.log(res.data)
-  }
+  // const getPlants = async () => {
+  //   const res = await axios.get(`${BASE_URL}/plants`)
+  //   setPlants(res.data)
+  //   console.log(res.data)
+  // }
 
-  const getAreas = async () => {
-    const res = await axios.get(`${BASE_URL}/areas`)
-    setAreas(res.data)
-    console.log(res.data)
-  }
+  // const getAreas = async () => {
+  //   const res = await axios.get(`${BASE_URL}/areas`)
+  //   setAreas(res.data)
+  //   console.log(res.data)
+  // }
 
   const getUser = async () => {
-    const res = await axios.get(`${BASE_URL}/users/1`)
+    const res = await axios.get(`${BASE_URL}/users/2`)
     setUser(...res.data)
     console.log(...res.data)
   }
@@ -46,10 +46,10 @@ function App() {
   }
 
   useEffect(() => {
-    getPlants()
+    // getPlants()
     getUser()
-    getAreas()
-    getWeather()
+    // getAreas()
+    // getWeather()
   }, [])
   return (
     <div className="App">
@@ -77,17 +77,14 @@ function App() {
             path="/plants"
             element={<PlantPage user={user} getUser={getUser} />}
           />
+          <Route path="/plants/new" element={<AddPlantPage user={user} />} />
+          <Route path="/plants/edit" element={<EditPlantPage user={user} />} />
           <Route
-            path="/plants/new"
-            element={<AddPlantPage plants={plants} />}
+            path="/areas"
+            element={<AreaPage user={user} getUser={getUser} />}
           />
-          <Route
-            path="/plants/edit"
-            element={<EditPlantPage plants={plants} />}
-          />
-          <Route path="/areas" element={<AreaPage areas={areas} />} />
-          <Route path="/areas/new" element={<AddAreaPage areas={areas} />} />
-          <Route path="/areas/edit" element={<EditAreaPage areas={areas} />} />
+          <Route path="/areas/new" element={<AddAreaPage user={user} />} />
+          <Route path="/areas/edit" element={<EditAreaPage user={user} />} />
         </Routes>
       </main>
     </div>
