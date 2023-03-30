@@ -1,11 +1,14 @@
 import './EditPlantPage.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../../globals'
 
 const EditPlantPage = () => {
   let navigate = useNavigate()
+
+  let plant_id = useParams()
+
   let initialState = {
     kind: '',
     nickName: '',
@@ -23,7 +26,7 @@ const EditPlantPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await axios.put(`${BASE_URL}/plants`, formState)
+    await axios.put(`${BASE_URL}/plants/${plant_id}`, formState)
     console.log(formState)
     setFormState(initialState)
     navigate('/plants')

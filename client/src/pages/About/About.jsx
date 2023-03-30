@@ -4,10 +4,10 @@ const About = () => {
     <div className="aboutsection">
       <h1>Keeping Life Planitful</h1>
       <p>
-        Plantify aims to make your home plant care just a little bit easier.
+        Plantiful aims to make your home plant care just a little bit easier.
         After all, you've got enough on your mind.
       </p>
-      <h2>How to use Plantify</h2>
+      <h2>How to use Plantiful</h2>
       <p>
         After creating a user profile, add the spaces in your home where you
         grow. Select one of the spaces, and add the plants you keep in them. The
