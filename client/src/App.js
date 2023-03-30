@@ -17,8 +17,8 @@ import AddAreaPage from './pages/AddAreaPage/AddAreaPage'
 import EditAreaPage from './pages/EditAreaPage/EditAreaPage'
 
 function App() {
-  const [plants, setPlants] = useState(null)
-  const [areas, setAreas] = useState(null)
+  // const [plants, setPlants] = useState('')
+  // const [areas, setAreas] = useState('')
   const [user, setUser] = useState(null)
   const [weather, setWeather] = useState(null)
 
@@ -35,7 +35,7 @@ function App() {
   // }
 
   const getUser = async () => {
-    const res = await axios.get(`${BASE_URL}/users/2`)
+    const res = await axios.get(`${BASE_URL}/users/1`)
     setUser(...res.data)
     console.log(...res.data)
   }
@@ -64,8 +64,8 @@ function App() {
             element={
               <Home
                 user={user}
-                plants={plants}
-                areas={areas}
+                // plants={plants}
+                // areas={areas}
                 weather={weather}
               />
             }

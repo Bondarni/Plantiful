@@ -7,6 +7,7 @@ const PlantPage = ({ user, getUser }) => {
     getUser()
   }, [])
   const plants = user.plants
+  console.log(plants)
   return (
     <div className="plantpagesection">
       <Link to={'/plants/new'}>

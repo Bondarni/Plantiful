@@ -1,7 +1,6 @@
 import './PlantCard.css'
 import { Link } from 'react-router-dom'
 const PlantCard = ({ plant }) => {
-  console.log(plant)
   return (
     <div className="plantcardsection">
       <h1>{plant.nickName}</h1>
