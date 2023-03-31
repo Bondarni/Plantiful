@@ -9,7 +9,7 @@ const PlantCard = ({ plant }) => {
       <Link to={`/plants/${plantId}`}>
         <button className="editbutton">Edit Plant Details</button>
       </Link>
-      <Link to={`/plants/delete/${plantId}`} plantId={plantId}>
+      <Link to={`/plants/delete/${plantId}`}>
         <button className="deletebutton">Remove Plant</button>
       </Link>
     </div>

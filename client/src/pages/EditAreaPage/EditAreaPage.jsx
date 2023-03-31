@@ -1,23 +1,25 @@
 import './EditAreaPage.css'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../../globals'
 
-const EditAreaPage = () => {
+const EditAreaPage = ({ user }) => {
   let navigate = useNavigate()
-
-  let area_id = useParams()
-
+  let areaArray = user.areas
+  let { area_id } = useParams()
   let initialState = {
-    kind: '',
-    nickName: '',
-    waterNeed: null,
-    sunNeed: null,
-    userId: 1,
-    areaId: 1
+    name: ''
+  }
+  for (let i = 0; i < areaArray.length; i++) {
+    console.log(areaArray[i].id)
+    console.log(area_id)
+    if (areaArray[i].id === area_id) {
+      initialState = { user }
+    }
   }
 
+  console.log(initialState)
   const [formState, setFormState] = useState(initialState)
 
   const handleChange = async (e) => {
@@ -34,14 +36,17 @@ const EditAreaPage = () => {
 
   return (
     <div className="editareapagesection">
-      <h1>Edit your space details below;</h1>
-      <form className="editform">
-        <input type="text" />
-        <input type="text" />
-      </form>
-      <Link to={'/areas'}>
+      <h1>Change the room name;</h1>
+      <form className="editform" onSubmit={handleSubmit}>
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          onChange={handleChange}
+          value={formState.name}
+        />
         <button>Done!</button>
-      </Link>
+      </form>
     </div>
   )
 }

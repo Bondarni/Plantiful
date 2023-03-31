@@ -1,23 +1,30 @@
 import './EditPlantPage.css'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../../globals'
 
-const EditPlantPage = () => {
+const EditPlantPage = ({ user }) => {
   let navigate = useNavigate()
-
-  let plant_id = useParams()
+  let plantArray = user.plants
+  let areaArray = user.areas
+  let { plant_id } = useParams()
 
   let initialState = {
     kind: '',
     nickName: '',
-    waterNeed: null,
-    sunNeed: null,
-    userId: 1,
     areaId: 1
   }
 
+  for (let i = 0; i < plantArray.length; i++) {
+    console.log(plantArray[i].id)
+    console.log(plant_id)
+    if (plantArray[i].id === plant_id) {
+      initialState = { user }
+    }
+  }
+
+  console.log(initialState)
   const [formState, setFormState] = useState(initialState)
 
   const handleChange = async (e) => {
@@ -36,15 +43,28 @@ const EditPlantPage = () => {
     <div className="editplantpagesection">
       <h1>Edit your plant's details below;</h1>
       <form className="editform" onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} />
-        <input type="text" onChange={handleChange} />
-        <input type="text" onChange={handleChange} />
-        <input type="text" onChange={handleChange} />
-        <input type="text" onChange={handleChange} />
-      </form>
-      <Link to={'/plants'}>
+        <label htmlFor="kind">Kind:</label>
+        <input
+          type="text"
+          id="kind"
+          onChange={handleChange}
+          value={formState.kind}
+        />
+        <label htmlFor="nickName">Nickname:</label>
+        <input
+          type="text"
+          id="nickName"
+          onChange={handleChange}
+          value={formState.nickName}
+        />
+        <label htmlFor="area">Room:</label>
+        <select>
+          {areaArray.map((area) => (
+            <option value={area.id}>{area.name}</option>
+          ))}
+        </select>
         <button>Done!</button>
-      </Link>
+      </form>
     </div>
   )
 }
