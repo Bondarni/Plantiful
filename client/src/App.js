@@ -9,6 +9,7 @@ import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import UserInfoPage from './pages/UserInfoPage/UserInfoPage'
 import EditUserInfoPage from './pages/EditUserInfoPage/EditUserInfoPage'
+import DeleteUserPage from './pages/DeleteUserPage/DeleteUserPage'
 import PlantPage from './pages/PlantPage/PlantPage'
 import AddPlantPage from './pages/AddPlantPage/AddPlantPage'
 import EditPlantPage from './pages/EditPlantPage/EditPlantPage'
@@ -37,7 +38,7 @@ function App() {
   // }
 
   const getUser = async () => {
-    const res = await axios.get(`${BASE_URL}/users/1`)
+    const res = await axios.get(`${BASE_URL}/users/2`)
     setUser(...res.data)
     console.log(...res.data)
   }
@@ -80,6 +81,10 @@ function App() {
           <Route
             path="/userinfo/edit"
             element={<EditUserInfoPage user={user} />}
+          />
+          <Route
+            path="/userinfo/delete"
+            element={<DeleteUserPage user={user} />}
           />
           <Route
             path="/plants"

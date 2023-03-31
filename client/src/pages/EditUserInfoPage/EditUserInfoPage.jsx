@@ -1,5 +1,5 @@
 import './EditUserInfoPage.css'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../../globals'
@@ -56,12 +56,12 @@ const EditUserInfoPage = ({ user }) => {
           onChange={handleChange}
           value={formState.password}
         />
-        <label htmlFor="zipcode">Zipcode:</label>
+        <label htmlFor="zipCode">Zipcode:</label>
         <input
           type="text"
-          id="zipcode"
+          id="zipCode"
           onChange={handleChange}
-          value={formState.zipcode}
+          value={formState.zipCode}
         />
         <button>Done!</button>
       </form>

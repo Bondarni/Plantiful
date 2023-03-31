@@ -14,6 +14,9 @@ const UserInfoPage = ({ user, getUser }) => {
       <Link to="/userinfo/edit">
         <button className="editbutton">Edit Your Account Info</button>
       </Link>
+      <Link to="/userinfo/delete">
+        <button className="deletebutton">Delete Your Account</button>
+      </Link>
     </div>
   )
 }
