@@ -73,8 +73,14 @@ function App() {
             }
           />
           <Route path="/about" element={<About />} />
-          <Route path="/userinfo" element={<UserInfoPage user={user} />} />
-          <Route path="/userinfo/edit" element={<EditUserInfoPage />} />
+          <Route
+            path="/userinfo"
+            element={<UserInfoPage user={user} getUser={getUser} />}
+          />
+          <Route
+            path="/userinfo/edit"
+            element={<EditUserInfoPage user={user} />}
+          />
           <Route
             path="/plants"
             element={<PlantPage user={user} getUser={getUser} />}
