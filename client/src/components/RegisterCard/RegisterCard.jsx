@@ -1,15 +1,73 @@
 import './RegisterCard.css'
+import axios from 'axios'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { BASE_URL } from '../../globals'
 
 const RegisterCard = () => {
+  let navigate = useNavigate()
+
+  let initialState = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    zipCode: ''
+  }
+
+  const [formState, setFormState] = useState(initialState)
+
+  const handleChange = async (e) => {
+    setFormState({ ...formState, [e.target.id]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await axios.post(`${BASE_URL}/plants`, formState)
+    console.log(formState)
+    setFormState(initialState)
+    navigate('/plants')
+  }
+
   return (
     <div className="registercardsection">
       <h1>Welcome!</h1>
       <form>
-        <input></input>
-        <input></input>
-        <input></input>
-        <input></input>
-        <input></input>
+        <label htmlFor="firstName">First Name:</label>
+        <input
+          type="text"
+          id="firstName"
+          onChange={handleChange}
+          value={formState.firstName}
+        />
+        <label htmlFor="lastName">Last Name:</label>
+        <input
+          type="text"
+          id="lastName"
+          onChange={handleChange}
+          value={formState.lastName}
+        />
+        <label htmlFor="email">Email:</label>
+        <input
+          type="text"
+          id="email"
+          onChange={handleChange}
+          value={formState.email}
+        />
+        <label htmlFor="password">Password:</label>
+        <input
+          type="text"
+          id="password"
+          onChange={handleChange}
+          value={formState.password}
+        />
+        <label htmlFor="zipCode">Zipcode:</label>
+        <input
+          type="text"
+          id="zipCode"
+          onChange={handleChange}
+          value={formState.zipCode}
+        />
         <button className="registerbutton">Click Here to Register</button>
       </form>
     </div>

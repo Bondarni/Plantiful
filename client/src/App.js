@@ -20,10 +20,10 @@ import EditAreaPage from './pages/EditAreaPage/EditAreaPage'
 import DeleteAreaPage from './pages/DeleteAreaPage/DeleteAreaPage'
 
 function App() {
+  const [user, setUser] = useState(null)
   // const [plants, setPlants] = useState('')
   // const [areas, setAreas] = useState('')
-  const [user, setUser] = useState(null)
-  const [weather, setWeather] = useState(null)
+  // const [weather, setWeather] = useState(null)
 
   // const getPlants = async () => {
   //   const res = await axios.get(`${BASE_URL}/plants`)
@@ -38,15 +38,15 @@ function App() {
   // }
 
   const getUser = async () => {
-    const res = await axios.get(`${BASE_URL}/users/2`)
+    const res = await axios.get(`${BASE_URL}/users/1`)
     setUser(...res.data)
     console.log(...res.data)
   }
 
-  const getWeather = async () => {
-    const res = await axios.get(`${BASE_URL}`)
-    setWeather(res.data)
-  }
+  // const getWeather = async () => {
+  //   const res = await axios.get(`${BASE_URL}`)
+  //   setWeather(res.data)
+  // }
 
   useEffect(() => {
     // getPlants()
@@ -69,7 +69,7 @@ function App() {
                 user={user}
                 // plants={plants}
                 // areas={areas}
-                weather={weather}
+                // weather={weather}
               />
             }
           />

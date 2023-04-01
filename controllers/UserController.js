@@ -1,4 +1,5 @@
 const { User, Plant, Area } = require('../models')
+const middleware = require('../middleware')
 
 const GetAllUsers = async (req, res) => {
   try {
@@ -55,7 +56,14 @@ const EditUserProfile = async (req, res) => {
 
 const CreateUserProfile = async (req, res) => {
   try {
-    const user = await User.create(req.body)
+    let passwordDigest = await middleware.hashPassword(password)
+    const user = await User.create({
+      firstName,
+      lastName,
+      email,
+      passwordDigest,
+      zipCode
+    })
     res.send(user)
   } catch (error) {
     throw error
