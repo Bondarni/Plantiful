@@ -21,21 +21,6 @@ import DeleteAreaPage from './pages/DeleteAreaPage/DeleteAreaPage'
 
 function App() {
   const [user, setUser] = useState(null)
-  // const [plants, setPlants] = useState('')
-  // const [areas, setAreas] = useState('')
-  // const [weather, setWeather] = useState(null)
-
-  // const getPlants = async () => {
-  //   const res = await axios.get(`${BASE_URL}/plants`)
-  //   setPlants(res.data)
-  //   console.log(res.data)
-  // }
-
-  // const getAreas = async () => {
-  //   const res = await axios.get(`${BASE_URL}/areas`)
-  //   setAreas(res.data)
-  //   console.log(res.data)
-  // }
 
   const getUser = async () => {
     const res = await axios.get(`${BASE_URL}/users/1`)
@@ -49,9 +34,7 @@ function App() {
   // }
 
   useEffect(() => {
-    // getPlants()
     getUser()
-    // getAreas()
     // getWeather()
   }, [])
   return (
