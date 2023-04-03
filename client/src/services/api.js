@@ -1,8 +1,8 @@
-import Axios from 'axios'
+import axios from 'axios'
 
 import { BASE_URL } from '../globals'
 
-const User = Axios.create(`${BASE_URL}/users`)
+const User = axios.create({ baseURL: BASE_URL })
 
 User.interceptors.request.use(
   (config) => {

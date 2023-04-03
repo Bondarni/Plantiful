@@ -1,4 +1,5 @@
 import './App.css'
+import { CheckSession } from './services/Auth'
 import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import axios from 'axios'
@@ -21,29 +22,38 @@ import DeleteAreaPage from './pages/DeleteAreaPage/DeleteAreaPage'
 
 function App() {
   const [user, setUser] = useState(null)
-  const getUser = async () => {
-    const res = await axios.get(`${BASE_URL}/users/1`)
-    setUser(...res.data)
-    console.log(...res.data)
+
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
   }
 
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+  }
+  // const getUser = async () => {
+  //   const res = await axios.get(`${BASE_URL}/users/${user.id}`)
+  //   setUser(...res.data)
+  // }
+
   useEffect(() => {
-    getUser()
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
   }, [])
   return (
     <div className="App">
       <header>
-        <NavBar />
+        <NavBar user={user} handleLogOut={handleLogOut} />
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<Entry />} />
+          <Route path="/" element={<Entry setUser={setUser} />} />
           <Route path="/home" element={<Home user={user} />} />
           <Route path="/about" element={<About />} />
-          <Route
-            path="/userinfo"
-            element={<UserInfoPage user={user} getUser={getUser} />}
-          />
+          <Route path="/userinfo" element={<UserInfoPage user={user} />} />
           <Route
             path="/userinfo/edit"
             element={<EditUserInfoPage user={user} />}
@@ -52,10 +62,7 @@ function App() {
             path="/userinfo/delete"
             element={<DeleteUserPage user={user} />}
           />
-          <Route
-            path="/plants"
-            element={<PlantPage user={user} getUser={getUser} />}
-          />
+          <Route path="/plants" element={<PlantPage user={user} />} />
           <Route path="/plants/new" element={<AddPlantPage user={user} />} />
           <Route
             path="/plants/:plant_id"
@@ -65,10 +72,7 @@ function App() {
             path="/plants/delete/:plant_id"
             element={<DeletePlantPage user={user} />}
           />
-          <Route
-            path="/areas"
-            element={<AreaPage user={user} getUser={getUser} />}
-          />
+          <Route path="/areas" element={<AreaPage user={user} />} />
           <Route path="/areas/new" element={<AddAreaPage user={user} />} />
           <Route
             path="/areas/:area_id"

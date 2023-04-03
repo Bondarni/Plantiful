@@ -1,8 +1,7 @@
 import './RegisterCard.css'
-import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { BASE_URL } from '../../globals'
+import { RegisterUser } from '../../services/Auth'
 
 const RegisterCard = () => {
   let navigate = useNavigate()
@@ -23,16 +22,22 @@ const RegisterCard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await axios.post(`${BASE_URL}/plants`, formState)
+    await RegisterUser({
+      firstName: formState.firstName,
+      lastName: formState.lastName,
+      email: formState.email,
+      password: formState.password,
+      zipCode: formState.zipCode
+    })
     console.log(formState)
     setFormState(initialState)
-    navigate('/plants')
+    navigate('/home')
   }
 
   return (
     <div className="registercardsection">
       <h1>Welcome!</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="firstName">First Name:</label>
         <input
           type="text"
