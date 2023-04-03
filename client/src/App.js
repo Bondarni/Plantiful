@@ -21,23 +21,14 @@ import DeleteAreaPage from './pages/DeleteAreaPage/DeleteAreaPage'
 
 function App() {
   const [user, setUser] = useState(null)
-  const [weather, setWeather] = useState(null)
   const getUser = async () => {
     const res = await axios.get(`${BASE_URL}/users/1`)
     setUser(...res.data)
     console.log(...res.data)
   }
 
-  const getWeather = async () => {
-    const res = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/zip?zip=${user.zipCode},USA&appid=${process.env.WEATHER_API_KEY}`
-    )
-    setWeather(res.data)
-  }
-
   useEffect(() => {
     getUser()
-    getWeather()
   }, [])
   return (
     <div className="App">
@@ -47,10 +38,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Entry />} />
-          <Route
-            path="/home"
-            element={<Home user={user} weather={weather} />}
-          />
+          <Route path="/home" element={<Home user={user} />} />
           <Route path="/about" element={<About />} />
           <Route
             path="/userinfo"
