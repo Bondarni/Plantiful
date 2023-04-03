@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { BASE_URL } from '../globals'
+export const BASE_URL = 'hhtp://localhost:3001'
 
 const User = axios.create({ baseURL: BASE_URL })
 

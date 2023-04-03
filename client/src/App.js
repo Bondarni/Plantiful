@@ -2,10 +2,9 @@ import './App.css'
 import { CheckSession } from './services/Auth'
 import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import axios from 'axios'
-import { BASE_URL } from './globals'
 import NavBar from './components/NavBar/NavBar'
-import Entry from './pages/Entry/Entry'
+import Login from './pages/Login/Login'
+import Register from './pages/Register/Register'
 import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import UserInfoPage from './pages/UserInfoPage/UserInfoPage'
@@ -50,7 +49,8 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<Entry setUser={setUser} />} />
+          <Route path="/" element={<Login setUser={setUser} />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home user={user} />} />
           <Route path="/about" element={<About />} />
           <Route path="/userinfo" element={<UserInfoPage user={user} />} />

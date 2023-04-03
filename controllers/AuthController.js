@@ -8,7 +8,7 @@ const Login = async (req, res) => {
     })
     console.log(user)
     let matched = await middleware.comparePassword(
-      user.passwordDigest,
+      user.password,
       req.body.password
     )
     if (matched) {
@@ -34,7 +34,7 @@ const Register = async (req, res) => {
       firstName,
       lastName,
       email,
-      passwordDigest,
+      password: passwordDigest,
       zipCode
     })
     res.send(user)
@@ -53,8 +53,8 @@ const UpdatePassword = async (req, res) => {
       oldPassword
     )
     if (matched) {
-      let passwordDigest = await middleware.hashPassword(newPassword)
-      await user.update({ passwordDigest })
+      let password = await middleware.hashPassword(newPassword)
+      await user.update({ password })
       let payload = {
         id: user.id,
         email: user.email

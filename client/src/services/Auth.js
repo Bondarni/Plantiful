@@ -3,7 +3,6 @@ import User from './api'
 export const SignInUser = async (data) => {
   try {
     const res = await User.post('/auth/login', data)
-    console.log('break')
     localStorage.setItem('token', res.data.token)
     return res.data.user
   } catch (error) {
@@ -13,7 +12,8 @@ export const SignInUser = async (data) => {
 
 export const RegisterUser = async (data) => {
   try {
-    const res = await User.post(`/auth/register`, data)
+    const res = await User.post('/auth/register', data)
+    console.log(res.data)
     return res.data
   } catch (error) {
     throw error

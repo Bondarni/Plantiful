@@ -1,9 +1,9 @@
-import './RegisterCard.css'
+import './Register.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../../services/Auth'
 
-const RegisterCard = () => {
+const Register = () => {
   let navigate = useNavigate()
 
   let initialState = {
@@ -31,7 +31,7 @@ const RegisterCard = () => {
     })
     console.log(formState)
     setFormState(initialState)
-    navigate('/home')
+    navigate('/')
   }
 
   return (
@@ -79,4 +79,4 @@ const RegisterCard = () => {
   )
 }
 
-export default RegisterCard
+export default Register
