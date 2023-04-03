@@ -31,10 +31,6 @@ function App() {
     const user = await CheckSession()
     setUser(user)
   }
-  // const getUser = async () => {
-  //   const res = await axios.get(`${BASE_URL}/users/${user.id}`)
-  //   setUser(...res.data)
-  // }
 
   useEffect(() => {
     const token = localStorage.getItem('token')
