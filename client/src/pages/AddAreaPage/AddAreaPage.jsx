@@ -29,7 +29,7 @@ const AddAreaPage = () => {
     <div className="addareasection">
       <h1>New Space</h1>
       <form onSubmit={handleSubmit}>
-        <label for="name">Which room are you adding?</label>
+        <label htmlFor="name">Which room are you adding?</label>
         <input
           type="text"
           name="name"
@@ -37,8 +37,8 @@ const AddAreaPage = () => {
           onChange={handleChange}
           value={formState.name}
         />
+        <button>Done!</button>
       </form>
-      <button>Done!</button>
     </div>
   )
 }

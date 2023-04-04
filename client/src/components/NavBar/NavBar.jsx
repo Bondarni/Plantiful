@@ -6,7 +6,7 @@ const NavBar = ({ user, handleLogOut }) => {
   if (user) {
     userOptions = (
       <nav>
-        <h3>Welcome {user.firstName}!</h3>
+        <h3>Welcome, {user.firstName}!</h3>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/areas">Spaces</NavLink>

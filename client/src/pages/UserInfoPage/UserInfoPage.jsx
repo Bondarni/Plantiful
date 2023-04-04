@@ -1,11 +1,6 @@
 import './UserInfoPage.css'
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
-const UserInfoPage = ({ user, getUser }) => {
-  useEffect(() => {
-    getUser()
-  }, [])
-
+const UserInfoPage = ({ user }) => {
   return (
     <div className="userinfopagesection">
       <h1>

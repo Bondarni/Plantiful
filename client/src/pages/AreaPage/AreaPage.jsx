@@ -1,6 +1,6 @@
-import AreaCard from '../../components/AreaCard/AreaCard'
 import './AreaPage.css'
 import { Link } from 'react-router-dom'
+import AreaCard from '../../components/AreaCard/AreaCard'
 const Area = ({ user }) => {
   const areas = user.areas
   console.log(areas)

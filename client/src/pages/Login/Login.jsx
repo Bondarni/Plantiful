@@ -27,7 +27,7 @@ const Login = ({ setUser }) => {
 
   return (
     <div className="logincardsection">
-      <h1>Welcome Back!</h1>
+      <h1>Hello again!</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>
         <input
@@ -47,9 +47,9 @@ const Login = ({ setUser }) => {
           Click here to enter your garden!
         </button>
       </form>
-      <Link to="/register">
-        <button>No account? Sign up for one here!</button>
-      </Link>
+      <button onClick={() => navigate('/register')}>
+        No account? Sign up for one here!
+      </button>
     </div>
   )
 }

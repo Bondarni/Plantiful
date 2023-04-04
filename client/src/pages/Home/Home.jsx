@@ -35,7 +35,7 @@ const Home = ({ user }) => {
       {/* <AreaCard /> */}
       <div className="weathercardsection">
         <h2>Here's the weather for Dekalb County;</h2>
-        <h3>Cloudy</h3>
+        <p>Cloudy</p>
         <p>Temperature: 60 degrees Farenheit</p>
         <p>Feels Like: 57</p>
       </div>

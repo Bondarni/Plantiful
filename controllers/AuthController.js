@@ -1,12 +1,15 @@
-const { User } = require('../models')
+const { User, Area, Plant } = require('../models')
 const middleware = require('../middleware')
 
 const Login = async (req, res) => {
   try {
     const user = await User.findOne({
-      where: { email: req.body.email }
+      where: { email: req.body.email },
+      include: [
+        { model: Area, as: 'areas' },
+        { model: Plant, as: 'plants' }
+      ]
     })
-    console.log(user)
     let matched = await middleware.comparePassword(
       user.password,
       req.body.password
@@ -14,6 +17,8 @@ const Login = async (req, res) => {
     if (matched) {
       let payload = {
         id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
         email: user.email,
         zipCode: user.zipCode,
         areas: user.areas,
@@ -80,13 +85,22 @@ const CheckSession = async (req, res) => {
   try {
     const { payload } = res.locals
     const foundUser = await User.findOne({
+      include: [
+        { model: Area, as: 'areas' },
+        { model: Plant, as: 'plants' }
+      ],
       where: { email: payload.email },
       raw: true
     })
+    console.log(foundUser)
     const user = {
       id: foundUser.id,
+      firstName: foundUser.firstName,
+      lastName: foundUser.lastName,
       email: foundUser.email,
-      name: foundUser.name
+      zipCode: foundUser.zipCode,
+      areas: foundUser.areas,
+      plants: foundUser.plants
     }
     res.send(user)
   } catch (error) {

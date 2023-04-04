@@ -36,7 +36,7 @@ const Register = () => {
 
   return (
     <div className="registercardsection">
-      <h1>Welcome!</h1>
+      <h1>Nice to meet you!</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="firstName">First Name:</label>
         <input
@@ -75,6 +75,9 @@ const Register = () => {
         />
         <button className="registerbutton">Click Here to Register</button>
       </form>
+      <button onClick={() => navigate('/')}>
+        Already have an account? Sign up here!
+      </button>
     </div>
   )
 }
