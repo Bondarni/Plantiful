@@ -6,22 +6,13 @@ import { BASE_URL } from '../../globals'
 
 const EditPlantPage = ({ user }) => {
   let navigate = useNavigate()
-  let plantArray = user.plants
   let areaArray = user.areas
   let { plant_id } = useParams()
 
   let initialState = {
     kind: '',
     nickName: '',
-    areaId: 1
-  }
-
-  for (let i = 0; i < plantArray.length; i++) {
-    console.log(plantArray[i].id)
-    console.log(plant_id)
-    if (plantArray[i].id === plant_id) {
-      initialState = { user }
-    }
+    areaId: ''
   }
 
   console.log(initialState)
@@ -60,7 +51,9 @@ const EditPlantPage = ({ user }) => {
         <label htmlFor="area">Room:</label>
         <select>
           {areaArray.map((area) => (
-            <option value={area.id}>{area.name}</option>
+            <option value={area.id} key={area.id}>
+              {area.name}
+            </option>
           ))}
         </select>
         <button>Done!</button>
