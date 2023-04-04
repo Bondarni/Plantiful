@@ -1,7 +1,6 @@
 import './NavBar.css'
 import { NavLink } from 'react-router-dom'
 const NavBar = ({ user, handleLogOut }) => {
-  console.log(user)
   let userOptions
   if (user) {
     userOptions = (

@@ -9,7 +9,6 @@ const EditUserInfoPage = ({ user }) => {
   let user_id = user.id
   let initialState = { ...user }
 
-  console.log(initialState)
   const [formState, setFormState] = useState(initialState)
 
   const handleChange = async (e) => {
@@ -19,7 +18,6 @@ const EditUserInfoPage = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await axios.put(`${BASE_URL}/users/${user_id}`, formState)
-    console.log(formState)
     setFormState(initialState)
     navigate('/userinfo')
   }

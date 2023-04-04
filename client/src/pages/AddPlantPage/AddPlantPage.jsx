@@ -24,7 +24,6 @@ const AddPlantPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await axios.post(`${BASE_URL}/plants`, formState)
-    console.log(formState)
     setFormState(initialState)
     navigate('/plants')
   }

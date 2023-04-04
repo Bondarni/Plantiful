@@ -30,7 +30,6 @@ function App() {
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
-    console.log(user)
   }
 
   useEffect(() => {

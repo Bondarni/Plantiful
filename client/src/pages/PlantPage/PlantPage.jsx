@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import PlantCard from '../../components/PlantCard/PlantCard'
 const PlantPage = ({ user }) => {
   const plants = user.plants
-  console.log(plants)
   let yesPlants
   if (plants) {
     yesPlants = (

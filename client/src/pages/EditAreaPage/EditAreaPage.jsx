@@ -12,14 +12,11 @@ const EditAreaPage = ({ user }) => {
     name: ''
   }
   for (let i = 0; i < areaArray.length; i++) {
-    console.log(areaArray[i].id)
-    console.log(area_id)
     if (areaArray[i].id === area_id) {
       initialState = { user }
     }
   }
 
-  console.log(initialState)
   const [formState, setFormState] = useState(initialState)
 
   const handleChange = async (e) => {
@@ -29,7 +26,6 @@ const EditAreaPage = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await axios.put(`${BASE_URL}/areas/${area_id}`, formState)
-    console.log(formState)
     setFormState(initialState)
     navigate('/areas')
   }

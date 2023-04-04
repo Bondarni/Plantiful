@@ -13,7 +13,6 @@ export const SignInUser = async (data) => {
 export const RegisterUser = async (data) => {
   try {
     const res = await User.post('api/auth/register', data)
-    console.log(res.data)
     return res.data
   } catch (error) {
     throw error

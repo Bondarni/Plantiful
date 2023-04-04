@@ -29,7 +29,6 @@ const Register = () => {
       password: formState.password,
       zipCode: formState.zipCode
     })
-    console.log(formState)
     setFormState(initialState)
     navigate('/')
   }

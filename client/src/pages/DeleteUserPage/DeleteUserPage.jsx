@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 const DeleteUserPage = ({ user }) => {
   let navigate = useNavigate()
   let user_id = user.id
-  console.log(user_id)
 
   const deletePlant = async () => {
     await axios.delete(`${BASE_URL}/users/${user_id}`)

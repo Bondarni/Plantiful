@@ -47,7 +47,6 @@ const Register = async (req, res) => {
     })
     res.send(user)
   } catch (error) {
-    console.log('register didnt work')
     throw error
   }
 }
@@ -73,7 +72,6 @@ const UpdatePassword = async (req, res) => {
       .status(401)
       .send({ status: 'Error', msg: 'Old Password did not match!' })
   } catch (error) {
-    console.log(error)
     res.status(401).send({
       status: 'Error',
       msg: 'An error has occurred updating password!'
@@ -92,7 +90,6 @@ const CheckSession = async (req, res) => {
       where: { email: payload.email },
       raw: true
     })
-    console.log(foundUser)
     const user = {
       id: foundUser.id,
       firstName: foundUser.firstName,
@@ -104,7 +101,6 @@ const CheckSession = async (req, res) => {
     }
     res.send(user)
   } catch (error) {
-    console.log(error)
     res.status(401).send({
       status: 'Error',
       msg: 'An error has occurred checking the session!'

@@ -15,7 +15,6 @@ const EditPlantPage = ({ user }) => {
     areaId: ''
   }
 
-  console.log(initialState)
   const [formState, setFormState] = useState(initialState)
 
   const handleChange = async (e) => {
@@ -25,7 +24,6 @@ const EditPlantPage = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await axios.put(`${BASE_URL}/plants/${plant_id}`, formState)
-    console.log(formState)
     setFormState(initialState)
     navigate('/plants')
   }

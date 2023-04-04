@@ -18,10 +18,8 @@ const LoginCard = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInUser(formState)
-    console.log(payload)
     setFormState(initialState)
     setUser(payload)
-    console.log('login handlesubmit worked')
     navigate('/home')
   }
 

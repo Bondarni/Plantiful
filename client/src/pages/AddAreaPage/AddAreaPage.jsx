@@ -20,7 +20,6 @@ const AddAreaPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await axios.post(`${BASE_URL}/areas`, formState)
-    console.log(formState)
     setFormState(initialState)
     navigate('/areas')
   }
