@@ -3,11 +3,20 @@
 
 Plantiful aims to be a place where you can assess your plants health in real time, get tips on plant care, and keep a schedule to stay on track.
 
+![Screenshot1](homepage.png)
+![Screenshot2](spacepage.png)
+![Screenshot3](plantpage.png)
+
 Technologies uses in this app:
 HTML / CSS / Javascript / React.js
 
+Future Features:
+- Deployment
+- Ability to read moisture and uv levels for each plant
+- Ability to 
+
 Updates:
-We're just getting started!  Come back later as changes occur.
+The basic website is built!
 
 Links:
 [Trello](https://trello.com/b/z8PmHZiu/plantiful)
