@@ -1,4 +1,5 @@
 import './PlantPage.css'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import PlantCard from '../../components/PlantCard/PlantCard'
 const PlantPage = ({ user }) => {
@@ -19,6 +20,10 @@ const PlantPage = ({ user }) => {
       <h1>Your account doesn't have any plants yet.</h1>
     </div>
   )
+
+  useEffect(() => {
+    // checkToken()
+  }, [])
   return (
     <div className="plantpagesection">
       <Link to={'/plants/new'}>

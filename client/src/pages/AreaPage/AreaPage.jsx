@@ -1,9 +1,9 @@
 import './AreaPage.css'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AreaCard from '../../components/AreaCard/AreaCard'
 const Area = ({ user }) => {
   const areas = user.areas
-  console.log(areas)
   let yesAreas
   if (areas) {
     yesAreas = (
@@ -20,6 +20,10 @@ const Area = ({ user }) => {
       <h1>Your account doesn't have any spaces yet.</h1>
     </div>
   )
+
+  useEffect(() => {
+    // checkToken()
+  }, [])
   return (
     <div className="areasection">
       <Link to={'/areas/new'}>

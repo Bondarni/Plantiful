@@ -32,7 +32,7 @@ const AddPlantPage = () => {
     <div className="addplantsection">
       <h1>New Plant</h1>
       <form onSubmit={handleSubmit}>
-        <label for="kind">What Kind of Plant is it?</label>
+        <label htmlFor="kind">What Kind of Plant is it?</label>
         <input
           type="text"
           kind="kind"
@@ -40,7 +40,7 @@ const AddPlantPage = () => {
           onChange={handleChange}
           value={formState.kind}
         />
-        <label for="nickName">
+        <label htmlFor="nickName">
           What Nickname would you like to give your plant?
         </label>
         <input
