@@ -3,16 +3,17 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../../globals'
-const AddPlantPage = () => {
+const AddPlantPage = ({ user }) => {
   let navigate = useNavigate()
+  let areaArray = user.areas
 
   let initialState = {
     kind: '',
     nickName: '',
     waterNeed: null,
     sunNeed: null,
-    userId: 1,
-    areaId: 1
+    userId: user.id,
+    areaId: null
   }
 
   const [formState, setFormState] = useState(initialState)
@@ -50,6 +51,14 @@ const AddPlantPage = () => {
           onChange={handleChange}
           value={formState.nickName}
         />
+        <label htmlFor="areaId">Where are you putting it?</label>
+        <select>
+          {areaArray.map((area) => (
+            <option value={area.id} key={area.id}>
+              {area.name}
+            </option>
+          ))}
+        </select>
         <button>Done!</button>
       </form>
     </div>

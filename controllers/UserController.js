@@ -10,7 +10,7 @@ const GetAllUsers = async (req, res) => {
   }
 }
 
-const GetUserWithPlants = async (req, res) => {
+const GetGardenerDeets = async (req, res) => {
   try {
     let userId = parseInt(req.params.user_id)
     const data = await User.findAll({
@@ -75,5 +75,5 @@ module.exports = {
   DeleteUserProfile,
   CreateUserProfile,
   EditUserProfile,
-  GetUserWithPlants
+  GetGardenerDeets
 }
