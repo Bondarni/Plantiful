@@ -1,18 +1,20 @@
 import './EditPlantPage.css'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../../globals'
 
 const EditPlantPage = ({ user }) => {
+  let { state } = useLocation()
+  console.log(state)
   let navigate = useNavigate()
   let areaArray = user.areas
   let { plant_id } = useParams()
 
   let initialState = {
-    kind: '',
-    nickName: '',
-    areaId: ''
+    kind: state.plantkind,
+    nickName: state.plantnickname,
+    areaId: state.plantarea
   }
 
   const [formState, setFormState] = useState(initialState)
@@ -47,7 +49,7 @@ const EditPlantPage = ({ user }) => {
           value={formState.nickName}
         />
         <label htmlFor="area">Room:</label>
-        <select>
+        <select id="areaId" onChange={handleChange} value={formState.areaId}>
           {areaArray.map((area) => (
             <option value={area.id} key={area.id}>
               {area.name}

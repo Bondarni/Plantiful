@@ -15,9 +15,9 @@ const Home = ({ user }) => {
     )
     let coords = response.data
     const res = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=imperial`
     )
-    console.log(res.data)
+    console.log(res.data.weather)
     setWeather(res.data.weather)
     setTemps(res.data.main)
   }
@@ -27,13 +27,12 @@ const Home = ({ user }) => {
       <h2>Here's the weather for your area;</h2>
       {weather.map((precip) => (
         <div key={precip.id}>
-          <h3>{precip.main}</h3>
-          <p>{precip.description}</p>
+          <div>{precip.main}</div>
+          <div>{precip.description}</div>
         </div>
       ))}
-
-      <p>{temps}</p>
-      <p>{temps.feels_like}</p>
+      <div>{temps.temp}</div>
+      <div>Feels like {temps.feels_like}</div>
     </div>
   )
 
@@ -44,7 +43,7 @@ const Home = ({ user }) => {
   )
 
   useEffect(() => {
-    if (user) {
+    if (user !== null) {
       getWeather()
     }
   }, [])
@@ -52,7 +51,9 @@ const Home = ({ user }) => {
   return (
     <div className="homesection">
       <h1>Home Sweet Home!</h1>
-      <div className="weathercardsection">{user ? yesUser : noUser}</div>
+      <div className="weathercardsection">
+        {user !== null ? yesUser : noUser}
+      </div>
     </div>
   )
 }

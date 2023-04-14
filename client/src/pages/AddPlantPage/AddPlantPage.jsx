@@ -36,7 +36,6 @@ const AddPlantPage = ({ user }) => {
         <label htmlFor="kind">What Kind of Plant is it?</label>
         <input
           type="text"
-          kind="kind"
           id="kind"
           onChange={handleChange}
           value={formState.kind}
@@ -46,13 +45,12 @@ const AddPlantPage = ({ user }) => {
         </label>
         <input
           type="text"
-          nickName="nickName"
           id="nickName"
           onChange={handleChange}
           value={formState.nickName}
         />
         <label htmlFor="areaId">Where are you putting it?</label>
-        <select>
+        <select id="areaId" onChange={handleChange} value={formState.areaId}>
           {areaArray.map((area) => (
             <option value={area.id} key={area.id}>
               {area.name}

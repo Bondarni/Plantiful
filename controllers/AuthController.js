@@ -6,8 +6,7 @@ const Login = async (req, res) => {
     const user = await User.findOne({
       where: { email: req.body.email },
       include: [
-        { model: Area, as: 'areas' },
-        { model: Plant, as: 'plants' }
+        { model: Area, as: 'areas', include: [{ model: Plant, as: 'plants' }] }
       ]
     })
     let matched = await middleware.comparePassword(
@@ -43,7 +42,9 @@ const Register = async (req, res) => {
       lastName,
       email,
       password: passwordDigest,
-      zipCode
+      zipCode,
+      areas: user.areas,
+      plants: user.plants
     })
     res.send(user)
   } catch (error) {

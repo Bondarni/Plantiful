@@ -2,6 +2,7 @@ import './AreaPage.css'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AreaCard from '../../components/AreaCard/AreaCard'
+import { CheckSession } from '../../services/Auth'
 const Area = ({ user }) => {
   const areas = user.areas
   let yesAreas
@@ -22,7 +23,7 @@ const Area = ({ user }) => {
   )
 
   useEffect(() => {
-    // checkToken()
+    CheckSession()
   }, [])
   return (
     <div className="areasection">
