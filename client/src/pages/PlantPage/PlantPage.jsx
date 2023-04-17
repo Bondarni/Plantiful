@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom'
 import PlantCard from '../../components/PlantCard/PlantCard'
 // import { CheckSession } from '../../services/Auth'
 const PlantPage = ({ user, checkToken, token }) => {
-  const plants = user.plants
+  let plants = false
+  if (user) {
+    plants = user.plants
+  }
   let yesPlants
   if (plants) {
     yesPlants = (
