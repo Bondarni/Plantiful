@@ -85,12 +85,12 @@ const CheckSession = async (req, res) => {
   try {
     const { payload } = res.locals
     const foundUser = await User.findOne({
+      where: { email: payload.email },
       include: [
         { model: Area, as: 'areas' },
         { model: Plant, as: 'plants' }
-      ],
-      where: { email: payload.email },
-      raw: true
+      ]
+      // raw: true
     })
     const user = {
       id: foundUser.id,

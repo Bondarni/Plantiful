@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom'
 import AreaCard from '../../components/AreaCard/AreaCard'
 // import { CheckSession } from '../../services/Auth'
 const AreaPage = ({ user }) => {
-  const areas = user.areas
+  let areas = false
+  if (user) {
+    areas = user.areas
+  }
   let yesAreas
   if (areas) {
     yesAreas = (
