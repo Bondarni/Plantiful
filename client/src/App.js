@@ -32,8 +32,9 @@ function App() {
     setUser(user)
   }
 
+  const token = localStorage.getItem('token')
+
   useEffect(() => {
-    const token = localStorage.getItem('token')
     if (token) {
       checkToken()
     }
@@ -58,7 +59,12 @@ function App() {
             path="/userinfo/delete"
             element={<DeleteUserPage user={user} />}
           />
-          <Route path="/plants" element={<PlantPage user={user} />} />
+          <Route
+            path="/plants"
+            element={
+              <PlantPage user={user} checkToken={checkToken} token={token} />
+            }
+          />
           <Route path="/plants/new" element={<AddPlantPage user={user} />} />
           <Route
             path="/plants/:plant_id"
@@ -68,7 +74,12 @@ function App() {
             path="/plants/delete/:plant_id"
             element={<DeletePlantPage user={user} />}
           />
-          <Route path="/areas" element={<AreaPage user={user} />} />
+          <Route
+            path="/areas"
+            element={
+              <AreaPage user={user} checkToken={checkToken} token={token} />
+            }
+          />
           <Route path="/areas/new" element={<AddAreaPage user={user} />} />
           <Route
             path="/areas/:area_id"

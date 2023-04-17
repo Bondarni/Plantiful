@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import PlantCard from '../../components/PlantCard/PlantCard'
 // import { CheckSession } from '../../services/Auth'
-const PlantPage = ({ user }) => {
+const PlantPage = ({ user, checkToken, token }) => {
   const plants = user.plants
   let yesPlants
   if (plants) {
@@ -24,6 +24,9 @@ const PlantPage = ({ user }) => {
 
   useEffect(() => {
     // CheckSession()
+    if (token) {
+      checkToken()
+    }
   }, [])
   return (
     <div className="plantpagesection">
