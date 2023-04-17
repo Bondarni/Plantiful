@@ -2,8 +2,8 @@ import './AreaPage.css'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AreaCard from '../../components/AreaCard/AreaCard'
-import { CheckSession } from '../../services/Auth'
-const Area = ({ user }) => {
+// import { CheckSession } from '../../services/Auth'
+const AreaPage = ({ user }) => {
   const areas = user.areas
   let yesAreas
   if (areas) {
@@ -23,7 +23,7 @@ const Area = ({ user }) => {
   )
 
   useEffect(() => {
-    CheckSession()
+    // CheckSession()
   }, [])
   return (
     <div className="areasection">
@@ -35,4 +35,4 @@ const Area = ({ user }) => {
   )
 }
 
-export default Area
+export default AreaPage

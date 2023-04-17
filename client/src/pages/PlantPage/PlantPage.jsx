@@ -2,6 +2,7 @@ import './PlantPage.css'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import PlantCard from '../../components/PlantCard/PlantCard'
+// import { CheckSession } from '../../services/Auth'
 const PlantPage = ({ user }) => {
   const plants = user.plants
   let yesPlants
@@ -22,7 +23,7 @@ const PlantPage = ({ user }) => {
   )
 
   useEffect(() => {
-    // checkToken()
+    // CheckSession()
   }, [])
   return (
     <div className="plantpagesection">

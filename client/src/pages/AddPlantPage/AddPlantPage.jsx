@@ -10,10 +10,10 @@ const AddPlantPage = ({ user }) => {
   let initialState = {
     kind: '',
     nickName: '',
-    waterNeed: null,
-    sunNeed: null,
+    waterNeed: '',
+    sunNeed: '',
     userId: user.id,
-    areaId: null
+    areaId: ''
   }
 
   const [formState, setFormState] = useState(initialState)

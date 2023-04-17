@@ -17,7 +17,6 @@ const Home = ({ user }) => {
     const res = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=imperial`
     )
-    console.log(res.data.weather)
     setWeather(res.data.weather)
     setTemps(res.data.main)
   }
