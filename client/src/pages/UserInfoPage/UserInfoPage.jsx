@@ -1,9 +1,11 @@
 import './UserInfoPage.css'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-const UserInfoPage = ({ user }) => {
+const UserInfoPage = ({ user, token, checkToken }) => {
   useEffect(() => {
-    // checkToken()
+    if (token) {
+      checkToken()
+    }
   }, [])
 
   return (

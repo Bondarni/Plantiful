@@ -50,7 +50,12 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home user={user} />} />
           <Route path="/about" element={<About />} />
-          <Route path="/userinfo" element={<UserInfoPage user={user} />} />
+          <Route
+            path="/userinfo"
+            element={
+              <UserInfoPage user={user} checkToken={checkToken} token={token} />
+            }
+          />
           <Route
             path="/userinfo/edit"
             element={<EditUserInfoPage user={user} />}

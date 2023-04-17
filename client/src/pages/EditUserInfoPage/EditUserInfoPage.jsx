@@ -47,13 +47,6 @@ const EditUserInfoPage = ({ user }) => {
           onChange={handleChange}
           value={formState.email}
         />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="text"
-          id="password"
-          onChange={handleChange}
-          value={formState.password}
-        />
         <label htmlFor="zipCode">Zipcode:</label>
         <input
           type="text"

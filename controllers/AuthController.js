@@ -43,9 +43,7 @@ const Register = async (req, res) => {
       lastName,
       email,
       password: passwordDigest,
-      zipCode,
-      areas: user.areas,
-      plants: user.plants
+      zipCode
     })
     res.send(user)
   } catch (error) {
