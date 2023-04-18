@@ -24,6 +24,7 @@ const Login = ({ setUser }) => {
   }
   useEffect(() => {
     localStorage.clear()
+    // eslint-disable-next-line
   }, [])
 
   return (

@@ -45,6 +45,7 @@ const Home = ({ user }) => {
     if (user !== null) {
       getWeather()
     }
+    // eslint-disable-next-line
   }, [])
 
   return (

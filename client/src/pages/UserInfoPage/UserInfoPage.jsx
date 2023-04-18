@@ -6,6 +6,7 @@ const UserInfoPage = ({ user, token, checkToken }) => {
     if (token) {
       checkToken()
     }
+    // eslint-disable-next-line
   }, [])
 
   return (

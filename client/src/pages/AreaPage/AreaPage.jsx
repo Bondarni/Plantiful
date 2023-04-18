@@ -2,22 +2,18 @@ import './AreaPage.css'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AreaCard from '../../components/AreaCard/AreaCard'
-// import { CheckSession } from '../../services/Auth'
 const AreaPage = ({ user, checkToken, token }) => {
-  let areas = false
+  let areas = []
   if (user) {
     areas = user.areas
   }
-  let yesAreas
-  if (areas) {
-    yesAreas = (
-      <div>
-        {areas.map((area) => (
-          <AreaCard area={area} key={area.id} />
-        ))}
-      </div>
-    )
-  }
+  const yesAreas = (
+    <div>
+      {areas.map((area) => (
+        <AreaCard area={area} key={area.id} />
+      ))}
+    </div>
+  )
 
   const noAreas = (
     <div>
@@ -26,10 +22,10 @@ const AreaPage = ({ user, checkToken, token }) => {
   )
 
   useEffect(() => {
-    // CheckSession()
     if (token) {
       checkToken()
     }
+    // eslint-disable-next-line
   }, [])
   return (
     <div className="areasection">

@@ -26,10 +26,10 @@ const PlantPage = ({ user, checkToken, token }) => {
   )
 
   useEffect(() => {
-    // CheckSession()
     if (token) {
       checkToken()
     }
+    // eslint-disable-next-line
   }, [])
   return (
     <div className="plantpagesection">

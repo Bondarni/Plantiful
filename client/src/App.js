@@ -38,6 +38,7 @@ function App() {
     if (token) {
       checkToken()
     }
+    // eslint-disable-next-line
   }, [])
   return (
     <div className="App">
